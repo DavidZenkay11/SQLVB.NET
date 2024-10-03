@@ -4,8 +4,4 @@
     Public Property Correo As String
     Public Property Telefono As String
 
-    ' Métodos para manejar clientes
-    Public Sub New()
-    End Sub
 End Class
-

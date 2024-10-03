@@ -76,10 +76,19 @@
   <ItemGroup>
     <Compile Include="Datos\ClienteDatos.vb" />
     <Compile Include="Datos\ConexionDB.vb" />
-    <Compile Include="FormClientes.Designer.vb">
+    <Compile Include="Datos\ProductoDatos.vb" />
+    <Compile Include="Datos\VentaDatos.vb" />
+    <Compile Include="Negocio\Venta.vb" />
+    <Compile Include="Presentación\FormClientes.Designer.vb">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormClientes.vb">
+    <Compile Include="Presentación\FormClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\FormProductos.Designer.vb">
+      <DependentUpon>FormProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentación\FormProductos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -98,16 +107,29 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Negocio\Cliente.vb" />
+    <Compile Include="Negocio\Producto.vb" />
+    <Compile Include="Presentación\FormVentas.Designer.vb">
+      <DependentUpon>FormVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentación\FormVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormClientes.resx">
+    <EmbeddedResource Include="Presentación\FormClientes.resx">
       <DependentUpon>FormClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\FormProductos.resx">
+      <DependentUpon>FormProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\FormVentas.resx">
+      <DependentUpon>FormVentas.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -122,8 +144,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presentación\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

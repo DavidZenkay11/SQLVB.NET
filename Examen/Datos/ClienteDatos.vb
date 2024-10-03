@@ -6,10 +6,8 @@ Public Class ClienteDatos
         Dim query As String = "SELECT * FROM Clientes"
         Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
         Dim dataTable As New DataTable()
-
         Dim adapter As New SqlDataAdapter(cmd)
         adapter.Fill(dataTable)
-
         conexion.CerrarConexion()
         Return dataTable
     End Function

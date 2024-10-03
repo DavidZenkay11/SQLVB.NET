@@ -1,4 +1,7 @@
 ﻿Public Class FormClientes
+    Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CargarClientes()
+    End Sub
     Private Sub CargarClientes()
         Dim datos As New ClienteDatos()
         Dim dataTable As DataTable = datos.ObtenerClientes()
@@ -6,9 +9,7 @@
         ' Llenar el DataGridView con los datos de los clientes
         dgvClientes.DataSource = dataTable
     End Sub
-    Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CargarClientes()
-    End Sub
+
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim cliente As New Cliente()
         cliente.Nombre = txtNombre.Text
@@ -55,6 +56,5 @@
             MessageBox.Show("Seleccione un cliente para eliminar")
         End If
     End Sub
-
 
 End Class
