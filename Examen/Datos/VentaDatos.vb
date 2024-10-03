@@ -82,4 +82,15 @@ Public Class VentaDatos
         conexion.CerrarConexion()
     End Sub
 
+    Public Function ObtenerReporteVentas() As DataTable
+        Dim query As String = "SELECT V.Id, C.Cliente, V.Total, V.Fecha FROM Ventas V INNER JOIN Clientes C ON V.ClienteId = C.Id"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
+
+
 End Class
