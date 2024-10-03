@@ -53,4 +53,9 @@
         End If
     End Sub
 
+    Private Sub txtBuscarProducto_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarProducto.TextChanged
+        Dim filtro As String = txtBuscarProducto.Text
+        Dim datos As New ProductoDatos()
+        dgvProductos.DataSource = datos.BuscarProductos(filtro)
+    End Sub
 End Class

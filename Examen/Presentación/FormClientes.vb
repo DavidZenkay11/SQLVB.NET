@@ -57,4 +57,10 @@
         End If
     End Sub
 
+    Private Sub txtBuscarCliente_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarCliente.TextChanged
+        Dim filtro As String = txtBuscarCliente.Text
+        Dim datos As New ClienteDatos()
+        dgvClientes.DataSource = datos.BuscarClientes(filtro)
+    End Sub
+
 End Class

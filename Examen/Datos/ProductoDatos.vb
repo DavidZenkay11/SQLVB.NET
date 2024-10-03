@@ -13,6 +13,17 @@ Public Class ProductoDatos
         Return dataTable
     End Function
 
+    Public Function BuscarProductos(filtro As String) As DataTable
+        Dim query As String = "SELECT * FROM Productos WHERE Nombre LIKE @Filtro OR Categoria LIKE @Filtro"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@Filtro", "%" & filtro & "%")
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
+
     Public Sub InsertarProducto(producto As Producto)
         Dim query As String = "INSERT INTO Productos (Nombre, Precio, Categoria) VALUES (@Nombre, @Precio, @Categoria)"
         Dim cmd As New SqlCommand(query, conexion.AbrirConexion())

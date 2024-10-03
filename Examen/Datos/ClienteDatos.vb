@@ -41,4 +41,16 @@ Public Class ClienteDatos
         conexion.CerrarConexion()
     End Sub
 
+    Public Function BuscarClientes(filtro As String) As DataTable
+        Dim query As String = "SELECT * FROM Clientes WHERE Cliente LIKE @Filtro OR Telefono LIKE @Filtro"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@Filtro", "%" & filtro & "%")
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
+
+
 End Class

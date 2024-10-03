@@ -34,12 +34,16 @@ Partial Class FormClientes
         Me.txtCorreo = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
+        Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
+        Me.lblBuscar = New System.Windows.Forms.Label()
         Me.Panel.SuspendLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel
         '
+        Me.Panel.Controls.Add(Me.lblBuscar)
+        Me.Panel.Controls.Add(Me.txtBuscarCliente)
         Me.Panel.Controls.Add(Me.btnBuscar)
         Me.Panel.Controls.Add(Me.btnEliminar)
         Me.Panel.Controls.Add(Me.btnEditar)
@@ -151,6 +155,22 @@ Partial Class FormClientes
         Me.dgvClientes.Size = New System.Drawing.Size(800, 350)
         Me.dgvClientes.TabIndex = 1
         '
+        'txtBuscarCliente
+        '
+        Me.txtBuscarCliente.Location = New System.Drawing.Point(676, 64)
+        Me.txtBuscarCliente.Name = "txtBuscarCliente"
+        Me.txtBuscarCliente.Size = New System.Drawing.Size(100, 22)
+        Me.txtBuscarCliente.TabIndex = 10
+        '
+        'lblBuscar
+        '
+        Me.lblBuscar.AutoSize = True
+        Me.lblBuscar.Location = New System.Drawing.Point(676, 40)
+        Me.lblBuscar.Name = "lblBuscar"
+        Me.lblBuscar.Size = New System.Drawing.Size(49, 16)
+        Me.lblBuscar.TabIndex = 11
+        Me.lblBuscar.Text = "Buscar"
+        '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -179,4 +199,6 @@ Partial Class FormClientes
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnEditar As Button
     Friend WithEvents btnAgregar As Button
+    Friend WithEvents lblBuscar As Label
+    Friend WithEvents txtBuscarCliente As TextBox
 End Class
