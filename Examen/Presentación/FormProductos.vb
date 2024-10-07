@@ -54,8 +54,36 @@
     End Sub
 
     Private Sub txtBuscarProducto_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarProducto.TextChanged
-        Dim filtro As String = txtBuscarProducto.Text
+
+        Dim filtroSeleccionado As String = cmbFiltroProducto.SelectedItem.ToString()
+        Dim valorBusqueda As String = txtBuscarProducto.Text
         Dim datos As New ProductoDatos()
-        dgvProductos.DataSource = datos.BuscarProductos(filtro)
+
+        If filtroSeleccionado = "Nombre" Then
+            dgvProductos.DataSource = datos.BuscarProductosPorNombre(valorBusqueda)
+        ElseIf filtroSeleccionado = "Categoría" Then
+            dgvProductos.DataSource = datos.BuscarProductosPorCategoria(valorBusqueda)
+        End If
+    End Sub
+
+    Private Sub btnBuscarProducto_Click(sender As Object, e As EventArgs) Handles btnBuscarProducto.Click
+        If cmbFiltroProducto.SelectedItem Is Nothing Then
+            MessageBox.Show("Por favor, seleccione un filtro.")
+            Return
+        End If
+        Dim filtroSeleccionado As String = cmbFiltroProducto.SelectedItem.ToString()
+        Dim valorBusqueda As String = txtBuscarProducto.Text
+        Dim datos As New ProductoDatos()
+
+
+        If filtroSeleccionado = "Nombre" Then
+            dgvProductos.DataSource = datos.BuscarProductosPorNombre(valorBusqueda)
+        ElseIf filtroSeleccionado = "Categoría" Then
+            dgvProductos.DataSource = datos.BuscarProductosPorCategoria(valorBusqueda)
+        End If
+    End Sub
+
+    Private Sub cmbFiltroProducto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbFiltroProducto.SelectedIndexChanged
+
     End Sub
 End Class

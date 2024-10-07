@@ -1,6 +1,10 @@
 ﻿Public Class FormClientes
     Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarClientes()
+        If cmbFiltroCliente.Items.Count > 0 Then
+            cmbFiltroCliente.SelectedIndex = 0 ' Selecciona el primer ítem (por ejemplo, "Nombre")
+        End If
+        cmbFiltroCliente.SelectedIndex = 0
     End Sub
     Private Sub CargarClientes()
         Dim datos As New ClienteDatos()
@@ -58,9 +62,20 @@
     End Sub
 
     Private Sub txtBuscarCliente_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarCliente.TextChanged
-        Dim filtro As String = txtBuscarCliente.Text
+
+
+        Dim filtroSeleccionado As String = cmbFiltroCliente.SelectedItem.ToString()
+
+        Dim valorBusqueda As String = txtBuscarCliente.Text
+
         Dim datos As New ClienteDatos()
-        dgvClientes.DataSource = datos.BuscarClientes(filtro)
+
+        If filtroSeleccionado = "Nombre" Then
+            dgvClientes.DataSource = datos.BuscarClientesPorNombre(valorBusqueda)
+        ElseIf filtroSeleccionado = "Teléfono" Then
+            dgvClientes.DataSource = datos.BuscarClientesPorTelefono(valorBusqueda)
+        End If
     End Sub
+
 
 End Class

@@ -1,6 +1,6 @@
 ﻿Public Class Venta
     Public Property Id As Integer
-    Public Property ClienteId As Integer
+    Public Property IDCliente As Integer
     Public Property Total As Decimal
     Public Property Fecha As Date
     Public Property Productos As List(Of VentaProducto)

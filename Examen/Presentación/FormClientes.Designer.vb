@@ -23,7 +23,9 @@ Partial Class FormClientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel = New System.Windows.Forms.Panel()
-        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.cmbFiltroCliente = New System.Windows.Forms.ComboBox()
+        Me.lblBuscar = New System.Windows.Forms.Label()
+        Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
@@ -34,17 +36,15 @@ Partial Class FormClientes
         Me.txtCorreo = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
-        Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
-        Me.lblBuscar = New System.Windows.Forms.Label()
         Me.Panel.SuspendLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel
         '
+        Me.Panel.Controls.Add(Me.cmbFiltroCliente)
         Me.Panel.Controls.Add(Me.lblBuscar)
         Me.Panel.Controls.Add(Me.txtBuscarCliente)
-        Me.Panel.Controls.Add(Me.btnBuscar)
         Me.Panel.Controls.Add(Me.btnEliminar)
         Me.Panel.Controls.Add(Me.btnEditar)
         Me.Panel.Controls.Add(Me.btnAgregar)
@@ -60,18 +60,34 @@ Partial Class FormClientes
         Me.Panel.Size = New System.Drawing.Size(800, 100)
         Me.Panel.TabIndex = 0
         '
-        'btnBuscar
+        'cmbFiltroCliente
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(538, 62)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(75, 25)
-        Me.btnBuscar.TabIndex = 9
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.UseVisualStyleBackColor = True
+        Me.cmbFiltroCliente.FormattingEnabled = True
+        Me.cmbFiltroCliente.Items.AddRange(New Object() {"Nombre", "Teléfono"})
+        Me.cmbFiltroCliente.Location = New System.Drawing.Point(644, 60)
+        Me.cmbFiltroCliente.Name = "cmbFiltroCliente"
+        Me.cmbFiltroCliente.Size = New System.Drawing.Size(121, 24)
+        Me.cmbFiltroCliente.TabIndex = 12
+        '
+        'lblBuscar
+        '
+        Me.lblBuscar.AutoSize = True
+        Me.lblBuscar.Location = New System.Drawing.Point(522, 41)
+        Me.lblBuscar.Name = "lblBuscar"
+        Me.lblBuscar.Size = New System.Drawing.Size(49, 16)
+        Me.lblBuscar.TabIndex = 11
+        Me.lblBuscar.Text = "Buscar"
+        '
+        'txtBuscarCliente
+        '
+        Me.txtBuscarCliente.Location = New System.Drawing.Point(525, 63)
+        Me.txtBuscarCliente.Name = "txtBuscarCliente"
+        Me.txtBuscarCliente.Size = New System.Drawing.Size(100, 22)
+        Me.txtBuscarCliente.TabIndex = 10
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(538, 32)
+        Me.btnEliminar.Location = New System.Drawing.Point(360, 3)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 25)
         Me.btnEliminar.TabIndex = 8
@@ -80,7 +96,7 @@ Partial Class FormClientes
         '
         'btnEditar
         '
-        Me.btnEditar.Location = New System.Drawing.Point(457, 63)
+        Me.btnEditar.Location = New System.Drawing.Point(360, 60)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(75, 25)
         Me.btnEditar.TabIndex = 7
@@ -89,7 +105,7 @@ Partial Class FormClientes
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(457, 32)
+        Me.btnAgregar.Location = New System.Drawing.Point(360, 31)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(75, 25)
         Me.btnAgregar.TabIndex = 6
@@ -155,22 +171,6 @@ Partial Class FormClientes
         Me.dgvClientes.Size = New System.Drawing.Size(800, 350)
         Me.dgvClientes.TabIndex = 1
         '
-        'txtBuscarCliente
-        '
-        Me.txtBuscarCliente.Location = New System.Drawing.Point(676, 64)
-        Me.txtBuscarCliente.Name = "txtBuscarCliente"
-        Me.txtBuscarCliente.Size = New System.Drawing.Size(100, 22)
-        Me.txtBuscarCliente.TabIndex = 10
-        '
-        'lblBuscar
-        '
-        Me.lblBuscar.AutoSize = True
-        Me.lblBuscar.Location = New System.Drawing.Point(676, 40)
-        Me.lblBuscar.Name = "lblBuscar"
-        Me.lblBuscar.Size = New System.Drawing.Size(49, 16)
-        Me.lblBuscar.TabIndex = 11
-        Me.lblBuscar.Text = "Buscar"
-        '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -195,10 +195,10 @@ Partial Class FormClientes
     Friend WithEvents txtTelefono As TextBox
     Friend WithEvents txtCorreo As TextBox
     Friend WithEvents txtNombre As TextBox
-    Friend WithEvents btnBuscar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnEditar As Button
     Friend WithEvents btnAgregar As Button
     Friend WithEvents lblBuscar As Label
     Friend WithEvents txtBuscarCliente As TextBox
+    Friend WithEvents cmbFiltroCliente As ComboBox
 End Class

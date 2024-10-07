@@ -3,9 +3,9 @@
 Public Class VentaDatos
     Dim conexion As New ConexionDB()
     Public Sub InsertarVenta(venta As Venta)
-        Dim queryVenta As String = "INSERT INTO Ventas (ClienteId, Total, Fecha) OUTPUT INSERTED.ID VALUES (@ClienteId, @Total, @Fecha)"
+        Dim queryVenta As String = "INSERT INTO Ventas (IDCliente, Total, Fecha) OUTPUT INSERTED.ID VALUES (@IDCliente, @Total, @Fecha)"
         Dim cmdVenta As New SqlCommand(queryVenta, conexion.AbrirConexion())
-        cmdVenta.Parameters.AddWithValue("@ClienteId", venta.ClienteId)
+        cmdVenta.Parameters.AddWithValue("@IDCliente", venta.IDCliente)
         cmdVenta.Parameters.AddWithValue("@Total", venta.Total)
         cmdVenta.Parameters.AddWithValue("@Fecha", venta.Fecha)
 
@@ -27,7 +27,7 @@ Public Class VentaDatos
         conexion.CerrarConexion()
     End Sub
     Public Function ObtenerVentas() As DataTable
-        Dim query As String = "SELECT V.Id, C.Cliente, V.Total, V.Fecha FROM Ventas V INNER JOIN Clientes C ON V.ClienteId = C.Id"
+        Dim query As String = "SELECT V.Id, C.Cliente, V.Total, V.Fecha FROM Ventas V INNER JOIN Clientes C ON V.IDCliente = C.Id"
         Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
         Dim dataTable As New DataTable()
         Dim adapter As New SqlDataAdapter(cmd)
@@ -83,7 +83,7 @@ Public Class VentaDatos
     End Sub
 
     Public Function ObtenerReporteVentas() As DataTable
-        Dim query As String = "SELECT V.Id, C.Cliente, V.Total, V.Fecha FROM Ventas V INNER JOIN Clientes C ON V.ClienteId = C.Id"
+        Dim query As String = "SELECT V.Id, C.Cliente, V.Total, V.Fecha FROM Ventas V INNER JOIN Clientes C ON V.IDCliente = C.Id"
         Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
         Dim dataTable As New DataTable()
         Dim adapter As New SqlDataAdapter(cmd)

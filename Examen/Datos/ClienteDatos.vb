@@ -51,6 +51,29 @@ Public Class ClienteDatos
         conexion.CerrarConexion()
         Return dataTable
     End Function
+    ' Método para buscar clientes por nombre
+    Public Function BuscarClientesPorNombre(nombre As String) As DataTable
+        Dim query As String = "SELECT * FROM Clientes WHERE Cliente LIKE @Nombre"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@Nombre", "%" & nombre & "%")
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
+
+    ' Método para buscar clientes por teléfono
+    Public Function BuscarClientesPorTelefono(telefono As String) As DataTable
+        Dim query As String = "SELECT * FROM Clientes WHERE Telefono LIKE @Telefono"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@Telefono", "%" & telefono & "%")
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
 
 
 End Class

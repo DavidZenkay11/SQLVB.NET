@@ -103,6 +103,12 @@
     <Compile Include="Presentación\FormClientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentación\FormMenu.Designer.vb">
+      <DependentUpon>FormMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentación\FormMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentación\FormProductos.Designer.vb">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </Compile>
@@ -113,6 +119,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -126,6 +133,12 @@
     </Compile>
     <Compile Include="Negocio\Cliente.vb" />
     <Compile Include="Negocio\Producto.vb" />
+    <Compile Include="Presentación\FormReporteProductos.Designer.vb">
+      <DependentUpon>FormReporteProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentación\FormReporteProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentación\FormReporteVentas.Designer.vb">
       <DependentUpon>FormReporteVentas.vb</DependentUpon>
     </Compile>
@@ -143,6 +156,9 @@
     <EmbeddedResource Include="Presentación\FormClientes.resx">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\FormMenu.resx">
+      <DependentUpon>FormMenu.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentación\FormProductos.resx">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +167,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\FormReporteProductos.resx">
+      <DependentUpon>FormReporteProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\FormReporteVentas.resx">
       <DependentUpon>FormReporteVentas.vb</DependentUpon>

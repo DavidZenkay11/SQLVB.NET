@@ -53,4 +53,38 @@ Public Class ProductoDatos
         conexion.CerrarConexion()
     End Sub
 
+    Public Function ObtenerReporteProductos() As DataTable
+        Dim query As String = "SELECT Nombre, Precio, Categoria FROM Productos"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
+
+    ' Método para buscar productos por nombre
+    Public Function BuscarProductosPorNombre(nombre As String) As DataTable
+        Dim query As String = "SELECT * FROM Productos WHERE Nombre LIKE @Nombre"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@Nombre", "%" & nombre & "%")
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
+
+    ' Método para buscar productos por categoría
+    Public Function BuscarProductosPorCategoria(categoria As String) As DataTable
+        Dim query As String = "SELECT * FROM Productos WHERE Categoria LIKE @Categoria"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@Categoria", "%" & categoria & "%")
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
+
 End Class

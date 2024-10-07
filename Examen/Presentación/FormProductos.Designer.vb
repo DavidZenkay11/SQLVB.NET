@@ -23,6 +23,8 @@ Partial Class FormProductos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel = New System.Windows.Forms.Panel()
+        Me.lblBuscarProducto = New System.Windows.Forms.Label()
+        Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
@@ -33,14 +35,16 @@ Partial Class FormProductos
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.dgvProductos = New System.Windows.Forms.DataGridView()
-        Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
-        Me.lblBuscarProducto = New System.Windows.Forms.Label()
+        Me.btnBuscarProducto = New System.Windows.Forms.Button()
+        Me.cmbFiltroProducto = New System.Windows.Forms.ComboBox()
         Me.Panel.SuspendLayout()
         CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel
         '
+        Me.Panel.Controls.Add(Me.cmbFiltroProducto)
+        Me.Panel.Controls.Add(Me.btnBuscarProducto)
         Me.Panel.Controls.Add(Me.lblBuscarProducto)
         Me.Panel.Controls.Add(Me.txtBuscarProducto)
         Me.Panel.Controls.Add(Me.btnEditar)
@@ -58,9 +62,25 @@ Partial Class FormProductos
         Me.Panel.Size = New System.Drawing.Size(800, 100)
         Me.Panel.TabIndex = 0
         '
+        'lblBuscarProducto
+        '
+        Me.lblBuscarProducto.AutoSize = True
+        Me.lblBuscarProducto.Location = New System.Drawing.Point(563, 22)
+        Me.lblBuscarProducto.Name = "lblBuscarProducto"
+        Me.lblBuscarProducto.Size = New System.Drawing.Size(52, 16)
+        Me.lblBuscarProducto.TabIndex = 10
+        Me.lblBuscarProducto.Text = "Buscar:"
+        '
+        'txtBuscarProducto
+        '
+        Me.txtBuscarProducto.Location = New System.Drawing.Point(566, 50)
+        Me.txtBuscarProducto.Name = "txtBuscarProducto"
+        Me.txtBuscarProducto.Size = New System.Drawing.Size(100, 22)
+        Me.txtBuscarProducto.TabIndex = 9
+        '
         'btnEditar
         '
-        Me.btnEditar.Location = New System.Drawing.Point(482, 49)
+        Me.btnEditar.Location = New System.Drawing.Point(401, 18)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(75, 25)
         Me.btnEditar.TabIndex = 8
@@ -69,7 +89,7 @@ Partial Class FormProductos
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(563, 49)
+        Me.btnEliminar.Location = New System.Drawing.Point(482, 18)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 25)
         Me.btnEliminar.TabIndex = 7
@@ -144,21 +164,23 @@ Partial Class FormProductos
         Me.dgvProductos.Size = New System.Drawing.Size(800, 350)
         Me.dgvProductos.TabIndex = 1
         '
-        'txtBuscarProducto
+        'btnBuscarProducto
         '
-        Me.txtBuscarProducto.Location = New System.Drawing.Point(671, 51)
-        Me.txtBuscarProducto.Name = "txtBuscarProducto"
-        Me.txtBuscarProducto.Size = New System.Drawing.Size(100, 22)
-        Me.txtBuscarProducto.TabIndex = 9
+        Me.btnBuscarProducto.Location = New System.Drawing.Point(483, 49)
+        Me.btnBuscarProducto.Name = "btnBuscarProducto"
+        Me.btnBuscarProducto.Size = New System.Drawing.Size(75, 25)
+        Me.btnBuscarProducto.TabIndex = 11
+        Me.btnBuscarProducto.Text = "Buscar"
+        Me.btnBuscarProducto.UseVisualStyleBackColor = True
         '
-        'lblBuscarProducto
+        'cmbFiltroProducto
         '
-        Me.lblBuscarProducto.AutoSize = True
-        Me.lblBuscarProducto.Location = New System.Drawing.Point(671, 27)
-        Me.lblBuscarProducto.Name = "lblBuscarProducto"
-        Me.lblBuscarProducto.Size = New System.Drawing.Size(52, 16)
-        Me.lblBuscarProducto.TabIndex = 10
-        Me.lblBuscarProducto.Text = "Buscar:"
+        Me.cmbFiltroProducto.FormattingEnabled = True
+        Me.cmbFiltroProducto.Items.AddRange(New Object() {"Nombre", "Categoría"})
+        Me.cmbFiltroProducto.Location = New System.Drawing.Point(673, 47)
+        Me.cmbFiltroProducto.Name = "cmbFiltroProducto"
+        Me.cmbFiltroProducto.Size = New System.Drawing.Size(121, 24)
+        Me.cmbFiltroProducto.TabIndex = 12
         '
         'FormProductos
         '
@@ -189,4 +211,6 @@ Partial Class FormProductos
     Friend WithEvents btnEditar As Button
     Friend WithEvents lblBuscarProducto As Label
     Friend WithEvents txtBuscarProducto As TextBox
+    Friend WithEvents cmbFiltroProducto As ComboBox
+    Friend WithEvents btnBuscarProducto As Button
 End Class
