@@ -23,12 +23,23 @@
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         If dgvProductos.SelectedRows.Count > 0 Then
+            ' Crear un nuevo objeto Producto
             Dim producto As New Producto()
             producto.Id = Convert.ToInt32(dgvProductos.SelectedRows(0).Cells("Id").Value)
             producto.Nombre = txtNombre.Text
-            producto.Precio = Convert.ToDecimal(txtPrecio.Text)
+
+            ' Validar que el precio ingresado sea un número válido
+            Dim precio As Decimal
+            If Decimal.TryParse(txtPrecio.Text, precio) Then
+                producto.Precio = precio
+            Else
+                MessageBox.Show("Por favor, ingrese un precio válido.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return ' Salir del evento si el precio es inválido
+            End If
+
             producto.Categoria = txtCategoria.Text
 
+            ' Actualizar el producto
             Dim datos As New ProductoDatos()
             datos.EditarProducto(producto)
 

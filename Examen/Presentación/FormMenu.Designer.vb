@@ -22,61 +22,101 @@ Partial Class FormMenu
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnClientes = New System.Windows.Forms.Button()
-        Me.btnProductos = New System.Windows.Forms.Button()
-        Me.btnVentas = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMenu))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnMostrarVentas = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentasItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pnlBot = New System.Windows.Forms.Panel()
+        Me.panelLogo = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
+        Me.pnlBot.SuspendLayout()
+        Me.panelLogo.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'btnClientes
-        '
-        Me.btnClientes.Location = New System.Drawing.Point(335, 80)
-        Me.btnClientes.Name = "btnClientes"
-        Me.btnClientes.Size = New System.Drawing.Size(100, 50)
-        Me.btnClientes.TabIndex = 0
-        Me.btnClientes.Text = "Clientes"
-        Me.btnClientes.UseVisualStyleBackColor = True
-        '
-        'btnProductos
-        '
-        Me.btnProductos.Location = New System.Drawing.Point(335, 136)
-        Me.btnProductos.Name = "btnProductos"
-        Me.btnProductos.Size = New System.Drawing.Size(100, 50)
-        Me.btnProductos.TabIndex = 1
-        Me.btnProductos.Text = "Productos"
-        Me.btnProductos.UseVisualStyleBackColor = True
-        '
-        'btnVentas
-        '
-        Me.btnVentas.Location = New System.Drawing.Point(335, 192)
-        Me.btnVentas.Name = "btnVentas"
-        Me.btnVentas.Size = New System.Drawing.Size(100, 50)
-        Me.btnVentas.TabIndex = 2
-        Me.btnVentas.Text = "Ventas"
-        Me.btnVentas.UseVisualStyleBackColor = True
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.btnMostrarVentas)
-        Me.Panel1.Controls.Add(Me.btnVentas)
-        Me.Panel1.Controls.Add(Me.btnClientes)
-        Me.Panel1.Controls.Add(Me.btnProductos)
+        Me.Panel1.Controls.Add(Me.pnlBot)
+        Me.Panel1.Controls.Add(Me.MenuStrip1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(800, 450)
         Me.Panel1.TabIndex = 3
         '
-        'btnMostrarVentas
+        'MenuStrip1
         '
-        Me.btnMostrarVentas.Location = New System.Drawing.Point(335, 249)
-        Me.btnMostrarVentas.Name = "btnMostrarVentas"
-        Me.btnMostrarVentas.Size = New System.Drawing.Size(100, 50)
-        Me.btnMostrarVentas.TabIndex = 3
-        Me.btnMostrarVentas.Text = "Mostrar Ventas"
-        Me.btnMostrarVentas.UseVisualStyleBackColor = True
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(800, 28)
+        Me.MenuStrip1.TabIndex = 4
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenuToolStripMenuItem
+        '
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.ProductosToolStripMenuItem, Me.VentasItemsToolStripMenuItem, Me.VentasToolStripMenuItem})
+        Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(60, 24)
+        Me.MenuToolStripMenuItem.Text = "Menu"
+        '
+        'ClientesToolStripMenuItem
+        '
+        Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.ClientesToolStripMenuItem.Text = "Clientes"
+        '
+        'ProductosToolStripMenuItem
+        '
+        Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
+        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.ProductosToolStripMenuItem.Text = "Productos"
+        '
+        'VentasItemsToolStripMenuItem
+        '
+        Me.VentasItemsToolStripMenuItem.Name = "VentasItemsToolStripMenuItem"
+        Me.VentasItemsToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.VentasItemsToolStripMenuItem.Text = "VentasItems"
+        '
+        'VentasToolStripMenuItem
+        '
+        Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.VentasToolStripMenuItem.Text = "Ventas"
+        '
+        'pnlBot
+        '
+        Me.pnlBot.Controls.Add(Me.panelLogo)
+        Me.pnlBot.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnlBot.Location = New System.Drawing.Point(0, 350)
+        Me.pnlBot.Name = "pnlBot"
+        Me.pnlBot.Size = New System.Drawing.Size(800, 100)
+        Me.pnlBot.TabIndex = 5
+        '
+        'panelLogo
+        '
+        Me.panelLogo.Controls.Add(Me.PictureBox1)
+        Me.panelLogo.Location = New System.Drawing.Point(689, 0)
+        Me.panelLogo.Name = "panelLogo"
+        Me.panelLogo.Size = New System.Drawing.Size(111, 100)
+        Me.panelLogo.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(107, 94)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'FormMenu
         '
@@ -84,16 +124,28 @@ Partial Class FormMenu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Panel1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormMenu"
-        Me.Text = "FormMenu"
+        Me.Text = "Menu"
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        Me.pnlBot.ResumeLayout(False)
+        Me.panelLogo.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents btnClientes As Button
-    Friend WithEvents btnProductos As Button
-    Friend WithEvents btnVentas As Button
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnMostrarVentas As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClientesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProductosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VentasItemsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents pnlBot As Panel
+    Friend WithEvents panelLogo As Panel
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

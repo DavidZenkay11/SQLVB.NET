@@ -22,6 +22,7 @@ Partial Class FormClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormClientes))
         Me.Panel = New System.Windows.Forms.Panel()
         Me.cmbFiltroCliente = New System.Windows.Forms.ComboBox()
         Me.lblBuscar = New System.Windows.Forms.Label()
@@ -162,10 +163,13 @@ Partial Class FormClientes
         '
         'dgvClientes
         '
+        Me.dgvClientes.AllowUserToAddRows = False
+        Me.dgvClientes.AllowUserToDeleteRows = False
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvClientes.Location = New System.Drawing.Point(0, 100)
         Me.dgvClientes.Name = "dgvClientes"
+        Me.dgvClientes.ReadOnly = True
         Me.dgvClientes.RowHeadersWidth = 51
         Me.dgvClientes.RowTemplate.Height = 24
         Me.dgvClientes.Size = New System.Drawing.Size(800, 350)
@@ -178,8 +182,9 @@ Partial Class FormClientes
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.dgvClientes)
         Me.Controls.Add(Me.Panel)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormClientes"
-        Me.Text = "FormClientes"
+        Me.Text = "Clientes"
         Me.Panel.ResumeLayout(False)
         Me.Panel.PerformLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
