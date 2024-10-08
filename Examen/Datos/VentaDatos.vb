@@ -37,4 +37,56 @@ Public Class VentaDatos
         conexion.CerrarConexion()
         Return dataTable
     End Function
+
+    Public Function ObtenerVentasConProductos() As DataTable
+        Dim query As String = "SELECT V.ID AS VentaId, C.Cliente AS NombreCliente, V.Fecha, V.Total, " &
+                              "P.Nombre AS NombreProducto, VI.Cantidad, VI.PrecioUnitario, VI.PrecioTotal " &
+                              "FROM Ventas V " &
+                              "INNER JOIN Clientes C ON V.IDCliente = C.ID " &
+                              "INNER JOIN VentasItems VI ON V.ID = VI.IDVenta " &
+                              "INNER JOIN Productos P ON VI.IDProducto = P.ID"
+
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
+    Public Function BuscarVentas(filtro As String, valorBusqueda As String) As DataTable
+        Dim query As String = ""
+
+        Select Case filtro
+            Case "ID de Venta"
+                query = "SELECT V.ID AS VentaId, C.Cliente AS NombreCliente, V.Fecha, V.Total, P.Nombre AS NombreProducto, VI.Cantidad, VI.PrecioUnitario, VI.PrecioTotal " &
+                        "FROM Ventas V INNER JOIN Clientes C ON V.IDCliente = C.ID " &
+                        "INNER JOIN VentasItems VI ON V.ID = VI.IDVenta " &
+                        "INNER JOIN Productos P ON VI.IDProducto = P.ID " &
+                        "WHERE V.ID = @valorBusqueda"
+            Case "Cliente"
+                query = "SELECT V.ID AS VentaId, C.Cliente AS NombreCliente, V.Fecha, V.Total, P.Nombre AS NombreProducto, VI.Cantidad, VI.PrecioUnitario, VI.PrecioTotal " &
+                        "FROM Ventas V INNER JOIN Clientes C ON V.IDCliente = C.ID " &
+                        "INNER JOIN VentasItems VI ON V.ID = VI.IDVenta " &
+                        "INNER JOIN Productos P ON VI.IDProducto = P.ID " &
+                        "WHERE C.Cliente LIKE '%' + @valorBusqueda + '%'"
+            Case "Fecha"
+                query = "SELECT V.ID AS VentaId, C.Cliente AS NombreCliente, V.Fecha, V.Total, " &
+                    "P.Nombre AS NombreProducto, VI.Cantidad, VI.PrecioUnitario, VI.PrecioTotal " &
+                    "FROM Ventas V INNER JOIN Clientes C ON V.IDCliente = C.ID " &
+                    "INNER JOIN VentasItems VI ON V.ID = VI.IDVenta " &
+                    "INNER JOIN Productos P ON VI.IDProducto = P.ID " &
+                    "WHERE VI.Fecha = @valorBusqueda"
+        End Select
+
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@valorBusqueda", valorBusqueda)
+
+        Dim dataTable As New DataTable()
+        Dim adapter As New SqlDataAdapter(cmd)
+        adapter.Fill(dataTable)
+
+        conexion.CerrarConexion()
+        Return dataTable
+    End Function
 End Class
