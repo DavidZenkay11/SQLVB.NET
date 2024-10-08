@@ -26,6 +26,7 @@ Partial Class FormMenu
         Me.btnProductos = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnMostrarVentas = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -58,6 +59,7 @@ Partial Class FormMenu
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.btnMostrarVentas)
         Me.Panel1.Controls.Add(Me.btnVentas)
         Me.Panel1.Controls.Add(Me.btnClientes)
         Me.Panel1.Controls.Add(Me.btnProductos)
@@ -66,6 +68,15 @@ Partial Class FormMenu
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(800, 450)
         Me.Panel1.TabIndex = 3
+        '
+        'btnMostrarVentas
+        '
+        Me.btnMostrarVentas.Location = New System.Drawing.Point(335, 249)
+        Me.btnMostrarVentas.Name = "btnMostrarVentas"
+        Me.btnMostrarVentas.Size = New System.Drawing.Size(100, 50)
+        Me.btnMostrarVentas.TabIndex = 3
+        Me.btnMostrarVentas.Text = "Mostrar Ventas"
+        Me.btnMostrarVentas.UseVisualStyleBackColor = True
         '
         'FormMenu
         '
@@ -84,4 +95,5 @@ Partial Class FormMenu
     Friend WithEvents btnProductos As Button
     Friend WithEvents btnVentas As Button
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnMostrarVentas As Button
 End Class

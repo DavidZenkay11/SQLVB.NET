@@ -2,7 +2,7 @@
     Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarClientes()
         If cmbFiltroCliente.Items.Count > 0 Then
-            cmbFiltroCliente.SelectedIndex = 0 ' Selecciona el primer ítem (por ejemplo, "Nombre")
+            cmbFiltroCliente.SelectedIndex = 0
         End If
         cmbFiltroCliente.SelectedIndex = 0
     End Sub
@@ -10,7 +10,7 @@
         Dim datos As New ClienteDatos()
         Dim dataTable As DataTable = datos.ObtenerClientes()
 
-        ' Llenar el DataGridView con los datos de los clientes
+
         dgvClientes.DataSource = dataTable
     End Sub
 
@@ -54,7 +54,7 @@
 
             MessageBox.Show("Cliente eliminado exitosamente")
 
-            ' Recargar los clientes en el DataGridView
+
             CargarClientes()
         Else
             MessageBox.Show("Seleccione un cliente para eliminar")

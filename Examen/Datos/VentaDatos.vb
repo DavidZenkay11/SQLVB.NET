@@ -2,95 +2,39 @@
 
 Public Class VentaDatos
     Dim conexion As New ConexionDB()
-    Public Sub InsertarVenta(venta As Venta)
-        Dim queryVenta As String = "INSERT INTO Ventas (IDCliente, Total, Fecha) OUTPUT INSERTED.ID VALUES (@IDCliente, @Total, @Fecha)"
-        Dim cmdVenta As New SqlCommand(queryVenta, conexion.AbrirConexion())
-        cmdVenta.Parameters.AddWithValue("@IDCliente", venta.IDCliente)
-        cmdVenta.Parameters.AddWithValue("@Total", venta.Total)
-        cmdVenta.Parameters.AddWithValue("@Fecha", venta.Fecha)
+    Public Function InsertarVenta(clienteId As Integer, fecha As DateTime, total As Decimal) As Integer
+        Dim query As String = "INSERT INTO Ventas (IDCliente, Fecha, Total) OUTPUT INSERTED.ID VALUES (@ClienteId, @Fecha, @Total)"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@ClienteId", clienteId)
+        cmd.Parameters.AddWithValue("@Fecha", fecha)
+        cmd.Parameters.AddWithValue("@Total", total)
 
-        ' Obtener el ID de la venta recién insertada
-        Dim ventaId As Integer = Convert.ToInt32(cmdVenta.ExecuteScalar())
+        Dim ventaId As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+        conexion.CerrarConexion()
 
-        ' Insertar los productos asociados a la venta
-        For Each producto In venta.Productos
-            Dim queryProducto As String = "INSERT INTO VentaProductos (VentaId, ProductoId, Cantidad, PrecioUnitario, PrecioTotal) VALUES (@VentaId, @ProductoId, @Cantidad, @PrecioUnitario, @PrecioTotal)"
-            Dim cmdProducto As New SqlCommand(queryProducto, conexion.AbrirConexion())
-            cmdProducto.Parameters.AddWithValue("@VentaId", ventaId)
-            cmdProducto.Parameters.AddWithValue("@ProductoId", producto.ProductoId)
-            cmdProducto.Parameters.AddWithValue("@Cantidad", producto.Cantidad)
-            cmdProducto.Parameters.AddWithValue("@PrecioUnitario", producto.PrecioUnitario)
-            cmdProducto.Parameters.AddWithValue("@PrecioTotal", producto.PrecioTotal)
-            cmdProducto.ExecuteNonQuery()
-        Next
+        Return ventaId
+    End Function
+    Public Sub InsertarProductoEnVenta(ventaId As Integer, productoId As Integer, cantidad As Integer, precioUnitario As Decimal, precioTotal As Decimal)
+        Dim query As String = "INSERT INTO VentasItems (IDVenta, IDProducto, PrecioUnitario, Cantidad, PrecioTotal) VALUES (@VentaId, @ProductoId, @PrecioUnitario, @Cantidad, @PrecioTotal)"
+        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
+        cmd.Parameters.AddWithValue("@VentaId", ventaId)
+        cmd.Parameters.AddWithValue("@ProductoId", productoId)
+        cmd.Parameters.AddWithValue("@PrecioUnitario", precioUnitario)
+        cmd.Parameters.AddWithValue("@Cantidad", cantidad)
+        cmd.Parameters.AddWithValue("@PrecioTotal", precioTotal)
 
+        cmd.ExecuteNonQuery()
         conexion.CerrarConexion()
     End Sub
     Public Function ObtenerVentas() As DataTable
-        Dim query As String = "SELECT V.Id, C.Cliente, V.Total, V.Fecha FROM Ventas V INNER JOIN Clientes C ON V.IDCliente = C.Id"
+        Dim query As String = "SELECT V.ID AS VentaId, C.Cliente AS NombreCliente, V.Fecha, V.Total FROM Ventas V INNER JOIN Clientes C ON V.IDCliente = C.ID"
+
         Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
         Dim dataTable As New DataTable()
         Dim adapter As New SqlDataAdapter(cmd)
+
         adapter.Fill(dataTable)
         conexion.CerrarConexion()
         Return dataTable
     End Function
-
-    Public Sub EliminarVenta(ventaId As Integer)
-
-        Dim queryProductos As String = "DELETE FROM VentaProductos WHERE VentaId = @VentaId"
-        Dim cmdProductos As New SqlCommand(queryProductos, conexion.AbrirConexion())
-        cmdProductos.Parameters.AddWithValue("@VentaId", ventaId)
-        cmdProductos.ExecuteNonQuery()
-
-
-        Dim queryVenta As String = "DELETE FROM Ventas WHERE Id = @VentaId"
-        Dim cmdVenta As New SqlCommand(queryVenta, conexion.AbrirConexion())
-        cmdVenta.Parameters.AddWithValue("@VentaId", ventaId)
-        cmdVenta.ExecuteNonQuery()
-
-        conexion.CerrarConexion()
-    End Sub
-
-    Public Sub EditarVenta(venta As Venta)
-        ' Primero, eliminar los productos asociados a la venta antes de agregar los actualizados
-        Dim queryEliminarProductos As String = "DELETE FROM VentaProductos WHERE VentaId = @VentaId"
-        Dim cmdEliminarProductos As New SqlCommand(queryEliminarProductos, conexion.AbrirConexion())
-        cmdEliminarProductos.Parameters.AddWithValue("@VentaId", venta.Id)
-        cmdEliminarProductos.ExecuteNonQuery()
-
-        ' Actualizar la información de la venta (total)
-        Dim queryVenta As String = "UPDATE Ventas SET Total = @Total, Fecha = @Fecha WHERE Id = @VentaId"
-        Dim cmdVenta As New SqlCommand(queryVenta, conexion.AbrirConexion())
-        cmdVenta.Parameters.AddWithValue("@Total", venta.Total)
-        cmdVenta.Parameters.AddWithValue("@Fecha", venta.Fecha)
-        cmdVenta.Parameters.AddWithValue("@VentaId", venta.Id)
-        cmdVenta.ExecuteNonQuery()
-
-        ' Volver a insertar los productos actualizados
-        For Each producto In venta.Productos
-            Dim queryProducto As String = "INSERT INTO VentaProductos (VentaId, ProductoId, Cantidad, PrecioUnitario, PrecioTotal) VALUES (@VentaId, @ProductoId, @Cantidad, @PrecioUnitario, @PrecioTotal)"
-            Dim cmdProducto As New SqlCommand(queryProducto, conexion.AbrirConexion())
-            cmdProducto.Parameters.AddWithValue("@VentaId", venta.Id)
-            cmdProducto.Parameters.AddWithValue("@ProductoId", producto.ProductoId)
-            cmdProducto.Parameters.AddWithValue("@Cantidad", producto.Cantidad)
-            cmdProducto.Parameters.AddWithValue("@PrecioUnitario", producto.PrecioUnitario)
-            cmdProducto.Parameters.AddWithValue("@PrecioTotal", producto.PrecioTotal)
-            cmdProducto.ExecuteNonQuery()
-        Next
-
-        conexion.CerrarConexion()
-    End Sub
-
-    Public Function ObtenerReporteVentas() As DataTable
-        Dim query As String = "SELECT V.Id, C.Cliente, V.Total, V.Fecha FROM Ventas V INNER JOIN Clientes C ON V.IDCliente = C.Id"
-        Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
-        Dim dataTable As New DataTable()
-        Dim adapter As New SqlDataAdapter(cmd)
-        adapter.Fill(dataTable)
-        conexion.CerrarConexion()
-        Return dataTable
-    End Function
-
-
 End Class

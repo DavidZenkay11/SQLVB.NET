@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormVentas
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class FormVentas
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVentas))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblProducto = New System.Windows.Forms.Label()
         Me.lblCliente = New System.Windows.Forms.Label()
@@ -35,11 +36,11 @@ Partial Class FormVentas
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.txtPrecioUnitario = New System.Windows.Forms.TextBox()
-        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.txtTotalGeneral = New System.Windows.Forms.TextBox()
         Me.cmbProducto = New System.Windows.Forms.ComboBox()
-        Me.dgvVentas = New System.Windows.Forms.DataGridView()
+        Me.dgvItemsVenta = New System.Windows.Forms.DataGridView()
         Me.Panel1.SuspendLayout()
-        CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvItemsVenta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -56,7 +57,7 @@ Partial Class FormVentas
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtCantidad)
         Me.Panel1.Controls.Add(Me.txtPrecioUnitario)
-        Me.Panel1.Controls.Add(Me.txtTotal)
+        Me.Panel1.Controls.Add(Me.txtTotalGeneral)
         Me.Panel1.Controls.Add(Me.cmbProducto)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -67,7 +68,7 @@ Partial Class FormVentas
         'lblProducto
         '
         Me.lblProducto.AutoSize = True
-        Me.lblProducto.Location = New System.Drawing.Point(78, 52)
+        Me.lblProducto.Location = New System.Drawing.Point(12, 52)
         Me.lblProducto.Name = "lblProducto"
         Me.lblProducto.Size = New System.Drawing.Size(61, 16)
         Me.lblProducto.TabIndex = 13
@@ -76,7 +77,7 @@ Partial Class FormVentas
         'lblCliente
         '
         Me.lblCliente.AutoSize = True
-        Me.lblCliente.Location = New System.Drawing.Point(78, 4)
+        Me.lblCliente.Location = New System.Drawing.Point(12, 4)
         Me.lblCliente.Name = "lblCliente"
         Me.lblCliente.Size = New System.Drawing.Size(48, 16)
         Me.lblCliente.TabIndex = 12
@@ -85,51 +86,63 @@ Partial Class FormVentas
         'cmbCliente
         '
         Me.cmbCliente.FormattingEnabled = True
-        Me.cmbCliente.Location = New System.Drawing.Point(78, 22)
+        Me.cmbCliente.Location = New System.Drawing.Point(12, 23)
         Me.cmbCliente.Name = "cmbCliente"
         Me.cmbCliente.Size = New System.Drawing.Size(121, 24)
         Me.cmbCliente.TabIndex = 11
         '
         'btnEditarVenta
         '
-        Me.btnEditarVenta.Location = New System.Drawing.Point(637, 61)
+        Me.btnEditarVenta.Image = CType(resources.GetObject("btnEditarVenta.Image"), System.Drawing.Image)
+        Me.btnEditarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEditarVenta.Location = New System.Drawing.Point(556, 49)
         Me.btnEditarVenta.Name = "btnEditarVenta"
-        Me.btnEditarVenta.Size = New System.Drawing.Size(75, 25)
+        Me.btnEditarVenta.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnEditarVenta.Size = New System.Drawing.Size(175, 45)
         Me.btnEditarVenta.TabIndex = 10
         Me.btnEditarVenta.Text = "Editar"
         Me.btnEditarVenta.UseVisualStyleBackColor = True
         '
         'btnEliminarVenta
         '
-        Me.btnEliminarVenta.Location = New System.Drawing.Point(556, 62)
+        Me.btnEliminarVenta.Image = CType(resources.GetObject("btnEliminarVenta.Image"), System.Drawing.Image)
+        Me.btnEliminarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminarVenta.Location = New System.Drawing.Point(375, 49)
         Me.btnEliminarVenta.Name = "btnEliminarVenta"
-        Me.btnEliminarVenta.Size = New System.Drawing.Size(75, 25)
+        Me.btnEliminarVenta.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnEliminarVenta.Size = New System.Drawing.Size(175, 45)
         Me.btnEliminarVenta.TabIndex = 9
         Me.btnEliminarVenta.Text = "Eliminar"
         Me.btnEliminarVenta.UseVisualStyleBackColor = True
         '
         'btnGuardarVenta
         '
-        Me.btnGuardarVenta.Location = New System.Drawing.Point(637, 30)
+        Me.btnGuardarVenta.Image = CType(resources.GetObject("btnGuardarVenta.Image"), System.Drawing.Image)
+        Me.btnGuardarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGuardarVenta.Location = New System.Drawing.Point(556, 3)
         Me.btnGuardarVenta.Name = "btnGuardarVenta"
-        Me.btnGuardarVenta.Size = New System.Drawing.Size(75, 25)
+        Me.btnGuardarVenta.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnGuardarVenta.Size = New System.Drawing.Size(175, 45)
         Me.btnGuardarVenta.TabIndex = 8
         Me.btnGuardarVenta.Text = "Guardar"
         Me.btnGuardarVenta.UseVisualStyleBackColor = True
         '
         'btnAgregarProducto
         '
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(556, 30)
+        Me.btnAgregarProducto.Image = CType(resources.GetObject("btnAgregarProducto.Image"), System.Drawing.Image)
+        Me.btnAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(375, 4)
         Me.btnAgregarProducto.Name = "btnAgregarProducto"
-        Me.btnAgregarProducto.Size = New System.Drawing.Size(75, 25)
+        Me.btnAgregarProducto.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnAgregarProducto.Size = New System.Drawing.Size(175, 45)
         Me.btnAgregarProducto.TabIndex = 7
-        Me.btnAgregarProducto.Text = "Agregar"
+        Me.btnAgregarProducto.Text = "Agregar Producto"
         Me.btnAgregarProducto.UseVisualStyleBackColor = True
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(430, 30)
+        Me.Label3.Location = New System.Drawing.Point(259, 34)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(38, 16)
         Me.Label3.TabIndex = 6
@@ -138,7 +151,7 @@ Partial Class FormVentas
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(321, 30)
+        Me.Label2.Location = New System.Drawing.Point(139, 55)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 16)
         Me.Label2.TabIndex = 5
@@ -147,7 +160,7 @@ Partial Class FormVentas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(218, 30)
+        Me.Label1.Location = New System.Drawing.Point(139, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(92, 16)
         Me.Label1.TabIndex = 4
@@ -155,65 +168,65 @@ Partial Class FormVentas
         '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(324, 52)
+        Me.txtCantidad.Location = New System.Drawing.Point(140, 70)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(100, 22)
         Me.txtCantidad.TabIndex = 3
         '
         'txtPrecioUnitario
         '
-        Me.txtPrecioUnitario.Location = New System.Drawing.Point(218, 52)
+        Me.txtPrecioUnitario.Location = New System.Drawing.Point(140, 30)
         Me.txtPrecioUnitario.Name = "txtPrecioUnitario"
         Me.txtPrecioUnitario.Size = New System.Drawing.Size(100, 22)
         Me.txtPrecioUnitario.TabIndex = 2
         '
-        'txtTotal
+        'txtTotalGeneral
         '
-        Me.txtTotal.Location = New System.Drawing.Point(430, 52)
-        Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(100, 22)
-        Me.txtTotal.TabIndex = 1
+        Me.txtTotalGeneral.Location = New System.Drawing.Point(259, 56)
+        Me.txtTotalGeneral.Name = "txtTotalGeneral"
+        Me.txtTotalGeneral.Size = New System.Drawing.Size(100, 22)
+        Me.txtTotalGeneral.TabIndex = 1
         '
         'cmbProducto
         '
         Me.cmbProducto.FormattingEnabled = True
-        Me.cmbProducto.Location = New System.Drawing.Point(78, 70)
+        Me.cmbProducto.Location = New System.Drawing.Point(12, 70)
         Me.cmbProducto.Name = "cmbProducto"
         Me.cmbProducto.Size = New System.Drawing.Size(121, 24)
         Me.cmbProducto.TabIndex = 0
         '
-        'dgvVentas
+        'dgvItemsVenta
         '
-        Me.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVentas.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvVentas.Location = New System.Drawing.Point(0, 100)
-        Me.dgvVentas.Name = "dgvVentas"
-        Me.dgvVentas.RowHeadersWidth = 51
-        Me.dgvVentas.RowTemplate.Height = 24
-        Me.dgvVentas.Size = New System.Drawing.Size(800, 350)
-        Me.dgvVentas.TabIndex = 1
+        Me.dgvItemsVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvItemsVenta.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvItemsVenta.Location = New System.Drawing.Point(0, 100)
+        Me.dgvItemsVenta.Name = "dgvItemsVenta"
+        Me.dgvItemsVenta.RowHeadersWidth = 51
+        Me.dgvItemsVenta.RowTemplate.Height = 24
+        Me.dgvItemsVenta.Size = New System.Drawing.Size(800, 350)
+        Me.dgvItemsVenta.TabIndex = 1
         '
         'FormVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.dgvVentas)
+        Me.Controls.Add(Me.dgvItemsVenta)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormVentas"
         Me.Text = "FormVentas"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvItemsVenta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents dgvVentas As DataGridView
+    Friend WithEvents dgvItemsVenta As DataGridView
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents txtPrecioUnitario As TextBox
-    Friend WithEvents txtTotal As TextBox
+    Friend WithEvents txtTotalGeneral As TextBox
     Friend WithEvents cmbProducto As ComboBox
     Friend WithEvents btnGuardarVenta As Button
     Friend WithEvents btnAgregarProducto As Button

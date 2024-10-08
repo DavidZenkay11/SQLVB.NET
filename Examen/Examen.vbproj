@@ -109,6 +109,12 @@
     <Compile Include="Presentación\FormMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentación\FormMostrarVentas.Designer.vb">
+      <DependentUpon>FormMostrarVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentación\FormMostrarVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentación\FormProductos.Designer.vb">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\FormMenu.resx">
       <DependentUpon>FormMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\FormMostrarVentas.resx">
+      <DependentUpon>FormMostrarVentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\FormProductos.resx">
       <DependentUpon>FormProductos.vb</DependentUpon>

@@ -15,4 +15,8 @@
         frmVentas.Show()
     End Sub
 
+    Private Sub btnMostrarVentas_Click(sender As Object, e As EventArgs) Handles btnMostrarVentas.Click
+        Dim frmMostrarVentas As New FormMostrarVentas()
+        frmMostrarVentas.Show()
+    End Sub
 End Class
