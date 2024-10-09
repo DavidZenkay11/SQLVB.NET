@@ -24,6 +24,7 @@ Partial Class FormClientes
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormClientes))
         Me.Panel = New System.Windows.Forms.Panel()
+        Me.lblFiltro = New System.Windows.Forms.Label()
         Me.cmbFiltroCliente = New System.Windows.Forms.ComboBox()
         Me.lblBuscar = New System.Windows.Forms.Label()
         Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
@@ -37,7 +38,6 @@ Partial Class FormClientes
         Me.txtCorreo = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
-        Me.lblFiltro = New System.Windows.Forms.Label()
         Me.Panel.SuspendLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -62,6 +62,15 @@ Partial Class FormClientes
         Me.Panel.Name = "Panel"
         Me.Panel.Size = New System.Drawing.Size(800, 158)
         Me.Panel.TabIndex = 0
+        '
+        'lblFiltro
+        '
+        Me.lblFiltro.AutoSize = True
+        Me.lblFiltro.Location = New System.Drawing.Point(300, 30)
+        Me.lblFiltro.Name = "lblFiltro"
+        Me.lblFiltro.Size = New System.Drawing.Size(36, 16)
+        Me.lblFiltro.TabIndex = 13
+        Me.lblFiltro.Text = "Filtro"
         '
         'cmbFiltroCliente
         '
@@ -185,15 +194,6 @@ Partial Class FormClientes
         Me.dgvClientes.RowTemplate.Height = 24
         Me.dgvClientes.Size = New System.Drawing.Size(800, 292)
         Me.dgvClientes.TabIndex = 1
-        '
-        'lblFiltro
-        '
-        Me.lblFiltro.AutoSize = True
-        Me.lblFiltro.Location = New System.Drawing.Point(300, 30)
-        Me.lblFiltro.Name = "lblFiltro"
-        Me.lblFiltro.Size = New System.Drawing.Size(36, 16)
-        Me.lblFiltro.TabIndex = 13
-        Me.lblFiltro.Text = "Filtro"
         '
         'FormClientes
         '

@@ -95,10 +95,10 @@ Partial Class FormVentas
         '
         Me.btnEditarVenta.Image = CType(resources.GetObject("btnEditarVenta.Image"), System.Drawing.Image)
         Me.btnEditarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEditarVenta.Location = New System.Drawing.Point(555, 100)
+        Me.btnEditarVenta.Location = New System.Drawing.Point(190, 100)
         Me.btnEditarVenta.Name = "btnEditarVenta"
-        Me.btnEditarVenta.Padding = New System.Windows.Forms.Padding(5)
-        Me.btnEditarVenta.Size = New System.Drawing.Size(175, 45)
+        Me.btnEditarVenta.Padding = New System.Windows.Forms.Padding(3)
+        Me.btnEditarVenta.Size = New System.Drawing.Size(180, 45)
         Me.btnEditarVenta.TabIndex = 10
         Me.btnEditarVenta.Text = "Editar"
         Me.btnEditarVenta.UseVisualStyleBackColor = True
@@ -107,10 +107,10 @@ Partial Class FormVentas
         '
         Me.btnEliminarVenta.Image = CType(resources.GetObject("btnEliminarVenta.Image"), System.Drawing.Image)
         Me.btnEliminarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminarVenta.Location = New System.Drawing.Point(193, 100)
+        Me.btnEliminarVenta.Location = New System.Drawing.Point(550, 100)
         Me.btnEliminarVenta.Name = "btnEliminarVenta"
-        Me.btnEliminarVenta.Padding = New System.Windows.Forms.Padding(5)
-        Me.btnEliminarVenta.Size = New System.Drawing.Size(175, 45)
+        Me.btnEliminarVenta.Padding = New System.Windows.Forms.Padding(3)
+        Me.btnEliminarVenta.Size = New System.Drawing.Size(180, 45)
         Me.btnEliminarVenta.TabIndex = 9
         Me.btnEliminarVenta.Text = "Eliminar"
         Me.btnEliminarVenta.UseVisualStyleBackColor = True
@@ -119,10 +119,10 @@ Partial Class FormVentas
         '
         Me.btnGuardarVenta.Image = CType(resources.GetObject("btnGuardarVenta.Image"), System.Drawing.Image)
         Me.btnGuardarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardarVenta.Location = New System.Drawing.Point(374, 100)
+        Me.btnGuardarVenta.Location = New System.Drawing.Point(370, 100)
         Me.btnGuardarVenta.Name = "btnGuardarVenta"
-        Me.btnGuardarVenta.Padding = New System.Windows.Forms.Padding(5)
-        Me.btnGuardarVenta.Size = New System.Drawing.Size(175, 45)
+        Me.btnGuardarVenta.Padding = New System.Windows.Forms.Padding(3)
+        Me.btnGuardarVenta.Size = New System.Drawing.Size(180, 45)
         Me.btnGuardarVenta.TabIndex = 8
         Me.btnGuardarVenta.Text = "Guardar"
         Me.btnGuardarVenta.UseVisualStyleBackColor = True
@@ -131,10 +131,10 @@ Partial Class FormVentas
         '
         Me.btnAgregarProducto.Image = CType(resources.GetObject("btnAgregarProducto.Image"), System.Drawing.Image)
         Me.btnAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(12, 100)
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(10, 100)
         Me.btnAgregarProducto.Name = "btnAgregarProducto"
-        Me.btnAgregarProducto.Padding = New System.Windows.Forms.Padding(5)
-        Me.btnAgregarProducto.Size = New System.Drawing.Size(175, 45)
+        Me.btnAgregarProducto.Padding = New System.Windows.Forms.Padding(3)
+        Me.btnAgregarProducto.Size = New System.Drawing.Size(180, 45)
         Me.btnAgregarProducto.TabIndex = 7
         Me.btnAgregarProducto.Text = "Agregar Producto"
         Me.btnAgregarProducto.UseVisualStyleBackColor = True

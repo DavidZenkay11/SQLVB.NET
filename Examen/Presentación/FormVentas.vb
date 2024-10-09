@@ -109,4 +109,46 @@
             txtTotalGeneral.Text = (1 * precioUnitario).ToString("F2")
         End If
     End Sub
+
+    Private Sub btnEliminarVenta_Click(sender As Object, e As EventArgs) Handles btnEliminarVenta.Click
+
+        If dgvItemsVenta.SelectedRows.Count > 0 Then
+
+            Dim resultado As DialogResult = MessageBox.Show("¿Estás seguro de que deseas eliminar el producto seleccionado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+
+            If resultado = DialogResult.Yes Then
+
+                dgvItemsVenta.Rows.RemoveAt(dgvItemsVenta.SelectedRows(0).Index)
+
+
+                ActualizarTotalGeneral()
+            End If
+        Else
+            MessageBox.Show("Seleccione un producto para eliminar.", "Error de eliminación", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    Private Sub btnEditarVenta_Click(sender As Object, e As EventArgs) Handles btnEditarVenta.Click
+        If dgvItemsVenta.SelectedRows.Count > 0 Then
+            Dim filaSeleccionada As DataGridViewRow = dgvItemsVenta.SelectedRows(0)
+
+            Dim productoId As Integer = Convert.ToInt32(cmbProducto.SelectedValue)
+            Dim nuevoNombre As String = cmbProducto.Text
+            Dim nuevoCantidad As Integer = Convert.ToInt32(txtCantidad.Text)
+            Dim nuevoPrecioUnitario As Decimal = Convert.ToDecimal(txtPrecioUnitario.Text)
+            Dim nuevoPrecioTotal As Decimal = nuevoCantidad * nuevoPrecioUnitario
+
+            filaSeleccionada.Cells("ProductoId").Value = productoId
+            filaSeleccionada.Cells("NombreProducto").Value = nuevoNombre
+            filaSeleccionada.Cells("Cantidad").Value = nuevoCantidad
+            filaSeleccionada.Cells("PrecioUnitario").Value = nuevoPrecioUnitario.ToString("F2")
+            filaSeleccionada.Cells("PrecioTotal").Value = nuevoPrecioTotal.ToString("F2")
+
+            ActualizarTotalGeneral()
+
+            MessageBox.Show("Producto editado exitosamente", "Edición", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            MessageBox.Show("No se ha seleccionado ningún producto para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
 End Class

@@ -76,24 +76,8 @@
         End If
     End Sub
 
-    Private Sub btnBuscarProducto_Click(sender As Object, e As EventArgs) Handles btnBuscarProducto.Click
-        If cmbFiltroProducto.SelectedItem Is Nothing Then
-            MessageBox.Show("Por favor, seleccione un filtro.")
-            Return
-        End If
-        Dim filtroSeleccionado As String = cmbFiltroProducto.SelectedItem.ToString()
-        Dim valorBusqueda As String = txtBuscarProducto.Text
-        Dim datos As New ProductoDatos()
 
-
-        If filtroSeleccionado = "Nombre" Then
-            dgvProductos.DataSource = datos.BuscarProductosPorNombre(valorBusqueda)
-        ElseIf filtroSeleccionado = "Categoría" Then
-            dgvProductos.DataSource = datos.BuscarProductosPorCategoria(valorBusqueda)
-        End If
-    End Sub
-
-    Private Sub cmbFiltroProducto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbFiltroProducto.SelectedIndexChanged
-
+    Private Sub cmbFiltroProducto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbFiltroProducto.KeyPress
+        e.Handled = True
     End Sub
 End Class

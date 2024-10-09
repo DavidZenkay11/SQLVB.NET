@@ -87,6 +87,7 @@ Partial Class FormMostrarVentas
         'cmbFiltro
         '
         Me.cmbFiltro.FormattingEnabled = True
+        Me.cmbFiltro.Items.AddRange(New Object() {"ID de Venta", "Cliente"})
         Me.cmbFiltro.Location = New System.Drawing.Point(89, 25)
         Me.cmbFiltro.Name = "cmbFiltro"
         Me.cmbFiltro.Size = New System.Drawing.Size(121, 24)

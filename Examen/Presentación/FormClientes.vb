@@ -77,5 +77,7 @@
         End If
     End Sub
 
-
+    Private Sub cmbFiltroCliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbFiltroCliente.KeyPress
+        e.Handled = True
+    End Sub
 End Class
