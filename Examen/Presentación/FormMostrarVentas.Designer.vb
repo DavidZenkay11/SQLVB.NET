@@ -25,8 +25,8 @@ Partial Class FormMostrarVentas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMostrarVentas))
         Me.dgvVentas = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblBuscar = New System.Windows.Forms.Label()
+        Me.lblFiltro = New System.Windows.Forms.Label()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.cmbFiltro = New System.Windows.Forms.ComboBox()
         CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,8 +49,8 @@ Partial Class FormMostrarVentas
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.lblBuscar)
+        Me.Panel1.Controls.Add(Me.lblFiltro)
         Me.Panel1.Controls.Add(Me.txtBuscar)
         Me.Panel1.Controls.Add(Me.cmbFiltro)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -59,27 +59,27 @@ Partial Class FormMostrarVentas
         Me.Panel1.Size = New System.Drawing.Size(800, 100)
         Me.Panel1.TabIndex = 1
         '
-        'Label2
+        'lblBuscar
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(251, 6)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 16)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Buscar"
+        Me.lblBuscar.AutoSize = True
+        Me.lblBuscar.Location = New System.Drawing.Point(210, 15)
+        Me.lblBuscar.Name = "lblBuscar"
+        Me.lblBuscar.Size = New System.Drawing.Size(49, 16)
+        Me.lblBuscar.TabIndex = 3
+        Me.lblBuscar.Text = "Buscar"
         '
-        'Label1
+        'lblFiltro
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(86, 6)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(36, 16)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Filtro"
+        Me.lblFiltro.AutoSize = True
+        Me.lblFiltro.Location = New System.Drawing.Point(40, 15)
+        Me.lblFiltro.Name = "lblFiltro"
+        Me.lblFiltro.Size = New System.Drawing.Size(36, 16)
+        Me.lblFiltro.TabIndex = 2
+        Me.lblFiltro.Text = "Filtro"
         '
         'txtBuscar
         '
-        Me.txtBuscar.Location = New System.Drawing.Point(254, 25)
+        Me.txtBuscar.Location = New System.Drawing.Point(210, 35)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(100, 22)
         Me.txtBuscar.TabIndex = 1
@@ -88,7 +88,7 @@ Partial Class FormMostrarVentas
         '
         Me.cmbFiltro.FormattingEnabled = True
         Me.cmbFiltro.Items.AddRange(New Object() {"ID de Venta", "Cliente"})
-        Me.cmbFiltro.Location = New System.Drawing.Point(89, 25)
+        Me.cmbFiltro.Location = New System.Drawing.Point(40, 35)
         Me.cmbFiltro.Name = "cmbFiltro"
         Me.cmbFiltro.Size = New System.Drawing.Size(121, 24)
         Me.cmbFiltro.TabIndex = 0
@@ -114,6 +114,6 @@ Partial Class FormMostrarVentas
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents cmbFiltro As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblBuscar As Label
+    Friend WithEvents lblFiltro As Label
 End Class

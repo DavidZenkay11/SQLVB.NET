@@ -24,6 +24,7 @@ Partial Class FormProductos
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormProductos))
         Me.Panel = New System.Windows.Forms.Panel()
+        Me.lblFiltro = New System.Windows.Forms.Label()
         Me.cmbFiltroProducto = New System.Windows.Forms.ComboBox()
         Me.lblBuscarProducto = New System.Windows.Forms.Label()
         Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
@@ -37,7 +38,6 @@ Partial Class FormProductos
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.dgvProductos = New System.Windows.Forms.DataGridView()
-        Me.lblFiltro = New System.Windows.Forms.Label()
         Me.Panel.SuspendLayout()
         CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -63,6 +63,15 @@ Partial Class FormProductos
         Me.Panel.Size = New System.Drawing.Size(800, 170)
         Me.Panel.TabIndex = 0
         '
+        'lblFiltro
+        '
+        Me.lblFiltro.AutoSize = True
+        Me.lblFiltro.Location = New System.Drawing.Point(210, 40)
+        Me.lblFiltro.Name = "lblFiltro"
+        Me.lblFiltro.Size = New System.Drawing.Size(36, 16)
+        Me.lblFiltro.TabIndex = 13
+        Me.lblFiltro.Text = "Filtro"
+        '
         'cmbFiltroProducto
         '
         Me.cmbFiltroProducto.FormattingEnabled = True
@@ -75,7 +84,7 @@ Partial Class FormProductos
         'lblBuscarProducto
         '
         Me.lblBuscarProducto.AutoSize = True
-        Me.lblBuscarProducto.Location = New System.Drawing.Point(345, 35)
+        Me.lblBuscarProducto.Location = New System.Drawing.Point(345, 40)
         Me.lblBuscarProducto.Name = "lblBuscarProducto"
         Me.lblBuscarProducto.Size = New System.Drawing.Size(49, 16)
         Me.lblBuscarProducto.TabIndex = 10
@@ -127,7 +136,7 @@ Partial Class FormProductos
         'lblCategoria
         '
         Me.lblCategoria.AutoSize = True
-        Me.lblCategoria.Location = New System.Drawing.Point(12, 112)
+        Me.lblCategoria.Location = New System.Drawing.Point(12, 110)
         Me.lblCategoria.Name = "lblCategoria"
         Me.lblCategoria.Size = New System.Drawing.Size(66, 16)
         Me.lblCategoria.TabIndex = 5
@@ -136,7 +145,7 @@ Partial Class FormProductos
         'lblPrecio
         '
         Me.lblPrecio.AutoSize = True
-        Me.lblPrecio.Location = New System.Drawing.Point(12, 58)
+        Me.lblPrecio.Location = New System.Drawing.Point(12, 60)
         Me.lblPrecio.Name = "lblPrecio"
         Me.lblPrecio.Size = New System.Drawing.Size(46, 16)
         Me.lblPrecio.TabIndex = 4
@@ -145,7 +154,7 @@ Partial Class FormProductos
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(12, 9)
+        Me.lblNombre.Location = New System.Drawing.Point(12, 10)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(56, 16)
         Me.lblNombre.TabIndex = 3
@@ -153,7 +162,7 @@ Partial Class FormProductos
         '
         'txtCategoria
         '
-        Me.txtCategoria.Location = New System.Drawing.Point(15, 134)
+        Me.txtCategoria.Location = New System.Drawing.Point(12, 130)
         Me.txtCategoria.Name = "txtCategoria"
         Me.txtCategoria.Size = New System.Drawing.Size(100, 22)
         Me.txtCategoria.TabIndex = 2
@@ -167,7 +176,7 @@ Partial Class FormProductos
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(12, 31)
+        Me.txtNombre.Location = New System.Drawing.Point(12, 30)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(100, 22)
         Me.txtNombre.TabIndex = 0
@@ -182,15 +191,6 @@ Partial Class FormProductos
         Me.dgvProductos.RowTemplate.Height = 24
         Me.dgvProductos.Size = New System.Drawing.Size(800, 280)
         Me.dgvProductos.TabIndex = 1
-        '
-        'lblFiltro
-        '
-        Me.lblFiltro.AutoSize = True
-        Me.lblFiltro.Location = New System.Drawing.Point(210, 35)
-        Me.lblFiltro.Name = "lblFiltro"
-        Me.lblFiltro.Size = New System.Drawing.Size(36, 16)
-        Me.lblFiltro.TabIndex = 13
-        Me.lblFiltro.Text = "Filtro"
         '
         'FormProductos
         '

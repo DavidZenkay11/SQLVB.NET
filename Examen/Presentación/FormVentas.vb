@@ -8,7 +8,10 @@
 
 
         PoblarComboClientes()
-
+        If cmbCliente.Items.Count > 0 Then
+            cmbCliente.SelectedIndex = 0
+        End If
+        cmbCliente.SelectedIndex = 0
         PoblarComboProductos()
     End Sub
     Private Sub btnAgregarProducto_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
@@ -37,16 +40,18 @@
         txtTotalGeneral.Text = totalGeneral.ToString("F2")
     End Sub
     Private Sub btnGuardarVenta_Click(sender As Object, e As EventArgs) Handles btnGuardarVenta.Click
+        Try
+            Dim clienteId As Integer = Convert.ToInt32(cmbCliente.SelectedValue)
+            Dim fechaVenta As DateTime = DateTime.Now
+            Dim totalGeneral As Decimal = Convert.ToDecimal(txtTotalGeneral.Text)
+            Dim datosVenta As New VentaDatos()
+            Dim ventaId As Integer = datosVenta.InsertarVenta(clienteId, fechaVenta, totalGeneral)
 
-        Dim clienteId As Integer = Convert.ToInt32(cmbCliente.SelectedValue)
-        Dim fechaVenta As DateTime = DateTime.Now
-        Dim totalGeneral As Decimal = Convert.ToDecimal(txtTotalGeneral.Text)
-
-
-        Dim datosVenta As New VentaDatos()
-        Dim ventaId As Integer = datosVenta.InsertarVenta(clienteId, fechaVenta, totalGeneral)
-
-        GuardarProductosEnVenta(ventaId)
+            GuardarProductosEnVenta(ventaId)
+            MessageBox.Show("La venta se ha guardado exitosamente.", "Venta Guardada", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al guardar la venta: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub GuardarProductosEnVenta(ventaId As Integer)
@@ -66,7 +71,6 @@
     Private Sub PoblarComboClientes()
         Dim datosCliente As New ClienteDatos()
         Dim dtClientes As DataTable = datosCliente.ObtenerClientes()
-
 
         cmbCliente.DataSource = dtClientes
         cmbCliente.DisplayMember = "Cliente"

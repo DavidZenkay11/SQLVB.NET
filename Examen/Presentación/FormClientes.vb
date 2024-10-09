@@ -1,4 +1,6 @@
-﻿Public Class FormClientes
+﻿Imports System.Text.RegularExpressions
+
+Public Class FormClientes
     Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarClientes()
         If cmbFiltroCliente.Items.Count > 0 Then
@@ -15,6 +17,11 @@
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+
+        If Not ValidarCampos() Then
+            Return
+        End If
+
         Dim cliente As New Cliente()
         cliente.Nombre = txtNombre.Text
         cliente.Correo = txtCorreo.Text
@@ -28,6 +35,11 @@
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+
+        If Not ValidarCampos() Then
+            Return
+        End If
+
         If dgvClientes.SelectedRows.Count > 0 Then
             Dim cliente As New Cliente()
             cliente.Id = Convert.ToInt32(dgvClientes.SelectedRows(0).Cells("Id").Value)
@@ -80,4 +92,24 @@
     Private Sub cmbFiltroCliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbFiltroCliente.KeyPress
         e.Handled = True
     End Sub
+    Private Function ValidarCampos() As Boolean
+
+        If String.IsNullOrWhiteSpace(txtNombre.Text) Then
+            MessageBox.Show("El nombre del cliente no puede estar vacío.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        Dim regex As New Regex("^\+?\d+(-\d+)*$")
+        If String.IsNullOrWhiteSpace(txtTelefono.Text) OrElse Not regex.IsMatch(txtTelefono.Text) Then
+            MessageBox.Show("El teléfono del cliente debe contener solo números y guiones, y puede comenzar con un '+'. No se permiten espacios.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtCorreo.Text) OrElse Not txtCorreo.Text.Contains("@") Then
+            MessageBox.Show("El correo electrónico no es válido.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        Return True
+    End Function
 End Class

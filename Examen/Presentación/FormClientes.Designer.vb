@@ -66,7 +66,7 @@ Partial Class FormClientes
         'lblFiltro
         '
         Me.lblFiltro.AutoSize = True
-        Me.lblFiltro.Location = New System.Drawing.Point(300, 30)
+        Me.lblFiltro.Location = New System.Drawing.Point(180, 30)
         Me.lblFiltro.Name = "lblFiltro"
         Me.lblFiltro.Size = New System.Drawing.Size(36, 16)
         Me.lblFiltro.TabIndex = 13
@@ -76,7 +76,7 @@ Partial Class FormClientes
         '
         Me.cmbFiltroCliente.FormattingEnabled = True
         Me.cmbFiltroCliente.Items.AddRange(New Object() {"Nombre", "Teléfono"})
-        Me.cmbFiltroCliente.Location = New System.Drawing.Point(300, 50)
+        Me.cmbFiltroCliente.Location = New System.Drawing.Point(180, 50)
         Me.cmbFiltroCliente.Name = "cmbFiltroCliente"
         Me.cmbFiltroCliente.Size = New System.Drawing.Size(121, 24)
         Me.cmbFiltroCliente.TabIndex = 12
@@ -84,7 +84,7 @@ Partial Class FormClientes
         'lblBuscar
         '
         Me.lblBuscar.AutoSize = True
-        Me.lblBuscar.Location = New System.Drawing.Point(177, 30)
+        Me.lblBuscar.Location = New System.Drawing.Point(325, 30)
         Me.lblBuscar.Name = "lblBuscar"
         Me.lblBuscar.Size = New System.Drawing.Size(49, 16)
         Me.lblBuscar.TabIndex = 11
@@ -92,7 +92,7 @@ Partial Class FormClientes
         '
         'txtBuscarCliente
         '
-        Me.txtBuscarCliente.Location = New System.Drawing.Point(180, 50)
+        Me.txtBuscarCliente.Location = New System.Drawing.Point(325, 50)
         Me.txtBuscarCliente.Name = "txtBuscarCliente"
         Me.txtBuscarCliente.Size = New System.Drawing.Size(100, 22)
         Me.txtBuscarCliente.TabIndex = 10
@@ -154,7 +154,7 @@ Partial Class FormClientes
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(15, 10)
+        Me.lblNombre.Location = New System.Drawing.Point(17, 9)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(56, 16)
         Me.lblNombre.TabIndex = 3

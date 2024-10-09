@@ -63,7 +63,6 @@ Public Class ProductoDatos
         Return dataTable
     End Function
 
-    ' Método para buscar productos por nombre
     Public Function BuscarProductosPorNombre(nombre As String) As DataTable
         Dim query As String = "SELECT * FROM Productos WHERE Nombre LIKE @Nombre"
         Dim cmd As New SqlCommand(query, conexion.AbrirConexion())
@@ -75,7 +74,6 @@ Public Class ProductoDatos
         Return dataTable
     End Function
 
-    ' Método para buscar productos por categoría
     Public Function BuscarProductosPorCategoria(categoria As String) As DataTable
         Dim query As String = "SELECT * FROM Productos WHERE Categoria LIKE @Categoria"
         Dim cmd As New SqlCommand(query, conexion.AbrirConexion())

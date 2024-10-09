@@ -6,7 +6,7 @@
         dgvVentas.DataSource = dtVentas
 
         ConfigurarDataGridView()
-        cmbFiltro.SelectedIndex = 1
+        cmbFiltro.SelectedIndex = 0
 
     End Sub
 
@@ -142,4 +142,6 @@
     Private Sub cmbFiltro_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbFiltro.KeyPress
         e.Handled = True
     End Sub
+
+
 End Class

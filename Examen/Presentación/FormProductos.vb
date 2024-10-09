@@ -1,6 +1,10 @@
 ﻿Public Class FormProductos
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarProductos()
+        If cmbFiltroProducto.Items.Count > 0 Then
+            cmbFiltroProducto.SelectedIndex = 0
+        End If
+        cmbFiltroProducto.SelectedIndex = 0
     End Sub
     Private Sub CargarProductos()
         Dim datos As New ProductoDatos()
@@ -9,6 +13,22 @@
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+
+        If String.IsNullOrWhiteSpace(txtNombre.Text) Then
+            MessageBox.Show("El nombre del producto no puede estar vacío.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If String.IsNullOrWhiteSpace(txtPrecio.Text) OrElse Not IsNumeric(txtPrecio.Text) Then
+            MessageBox.Show("El precio del producto no es válido o está vacío.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If String.IsNullOrWhiteSpace(txtCategoria.Text) Then
+            MessageBox.Show("El nombre de la categoría no puede estar vacío.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
         Dim producto As New Producto()
         producto.Nombre = txtNombre.Text
         producto.Precio = Convert.ToDecimal(txtPrecio.Text)

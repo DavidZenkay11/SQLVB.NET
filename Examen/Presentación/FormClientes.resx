@@ -121,7 +121,7 @@
   <data name="btnEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAgNJREFUSEulVdsuA1EUnZ/wgBKfIOGU+AMJ4jfc6gNEFV8gaVoN8eDRu8sHiFvE
+        DwAACw8BkvkDpQAAAgNJREFUSEulVdsuA1EUnZ/wgBKfIOGU+AMJ4jfc6gNEFV8gaVoN8eDRu8sHiFvE
         K9LygB8o3rRqrWOPnDPdPTOJlax0evbea+9ZZ85MFMLt2NjwtTErV/n8GfgAfgp5zbXlm/HxIUnPjovJ
         yUEI18DWdT7fCRFN2vg9upyYGJHyMFAwD+GPpFAqjXlHkzmR0YGEVZlIF0mhrTWmIHI+OPl/xGNSo+tO
         sJhL2vJSLneeSiWvWOPz1lbntVLx12HX+dTUgMhHERYO3ASKE9/tdrAJxTvIIZJNMPSeFZdH0XtaKBoX
@@ -136,7 +136,7 @@
   <data name="btnEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAeZJREFUSEulVclKA0EQnZ/w4Io/IJlEz95d8Qf8APerguJF8OLSHS8RRcGLGMiM
+        DwAACw8BkvkDpQAAAeZJREFUSEulVclKA0EQnZ/w4Io/IJlEz95d8Qf8APerguJF8OLSHS8RRcGLGMiM
         uMUERO9GzE1F/AiNF0k6Y72ejphJO2knDx4zTNW86q6uqrbC0H/GeuIun7Mdfh13+DPxU/HZ/8ZmB9yN
         buVujtj5Zqft8l3bZRUK4DWhIKZj7nav+j0c5DgRd1kpINKUtKOP+On2uJLRw3bYAjljRVoRAwo7k5xX
         cvXwV96SeI2iYSd9Gd4VJS3gSO6w4Zufrp0OJY/U8IOgkwkX77NeWQhvvXjbaHfYnhRHKRpWSx0n7048
@@ -150,7 +150,7 @@
   <data name="btnAgregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAcFJREFUSEu1VUtOwzAQ9SVY8BUXQE0Kl0AqhWvwKUgsOAVQu2yKQNCyrJQE8Smo
+        DwAACw8BkvkDpQAAAcFJREFUSEu1VUtOwzAQ9SVY8BUXQE0Kl0AqhWvwKUgsOAVQu2yKQNCyrJQE8Smo
         bFlUCHZILeUUUHYQhRlnitJ0yKfQJz3FcsZv7PHMWERh/kLOmI4qGLa6NW3VBn4Q2/6c3FhwdqfJPDky
         l3uThqMODUd+gQMvhi6wlnGKs7Q8GmC4YjqyGxKJJZzo3Twv5kmGh2HLLTDGHbEiCegaVmmT5Prh7/x3
         8Vyj4qnne00cczZEd+Akc5aaigvLdvPK6wHHnE2PfrgOJkgeQ6NOOMMg0zjQtOWRFsdUTJItaR2gJkZG
